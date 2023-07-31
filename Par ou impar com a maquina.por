@@ -1,27 +1,40 @@
 programa {
-   inclua biblioteca Util --> u
+  inclua biblioteca Util --> u
   funcao inicio() {
-    inteiro impar, par, resultado, numero, robo, escolha
-    robo = u.sorteia(1, 5)
-    impar = 1
-    par = 0
-    
-    escreva("\n",robo,".")
-    
-    escreva("Ol�, vamos brincar de par ou impar, por favor escolha.\n")
-    escreva("Digite 1 para impar e 2 para par: ")
-    leia(escolher)
+      inteiro num, numRobo, soma, resto
+      caracter parImpar
 
-    escreva("Agora digite um numero de 1 a 5: ")
-    leia(numero)
+      //Se o chat nao falar que você ganhou vc perdeu
+      //Não consegui configurar para falar que perdeu 😅      
+      
+      escreva("Este é um jogo de impar ou par contra o computador.\n")
+      escreva("Digite i para jogar como impar e p para jogar como par: ")
+      leia(parImpar)
 
-    (numero + robo = resultado)
+    se(parImpar == 'i')
+      escreva("Boa sorte você escolheu impar\n")
+      
+    senao se(parImpar == 'p')
+      escreva("Boa sorte você escolheu par")
+      
+      
+    escreva("Agora escolha um numero de 1 a 5 para jogar: ")
+      leia (num)
+
+     
+     se(num <= 5)
+      numRobo = u.sorteia(1,5)
+      escreva("A maquina escolheu ",numRobo,"\n")
+      soma = num + numRobo
+      resto = soma % 2
     
-    se (resultado / 2 == 0)
-      escreva("Voc� ganhou")
+    se((resto == 0)e(parImpar == 'p')){
+      escreva("Você jogou par com o valor de ", num," e o computador jogou par com ", numRobo"\n e você venceu")
+  }
+    senao se((resto == 1)e(parImpar == 'i')){
+      escreva("Você jogou impar com o valor de ", num," e o computador jogou impar com ", numRobo"\n e você venceu")
+  }
 
-    senao se (resultado /2 != 0)
-      escreva("Voce perdeu")
 
   }
 }
